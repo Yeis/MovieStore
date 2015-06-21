@@ -158,6 +158,12 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="BLL\AutorBLL.cs" />
+    <Compile Include="BLL\ClienteBLL.cs" />
+    <Compile Include="BLL\GeneroBLL.cs" />
+    <Compile Include="BLL\PeliculaBLL.cs" />
+    <Compile Include="BLL\PeliculaRentaBLL.cs" />
+    <Compile Include="BLL\RentaBLL.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
