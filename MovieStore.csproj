@@ -159,12 +159,7 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
-    <Compile Include="BLL\AutorBLL.cs" />
-    <Compile Include="BLL\ClienteBLL.cs" />
-    <Compile Include="BLL\GeneroBLL.cs" />
-    <Compile Include="BLL\PeliculaBLL.cs" />
     <Compile Include="BLL\PeliculaRentaBLL.cs" />
-    <Compile Include="BLL\RentaBLL.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AutorController.cs" />
     <Compile Include="Controllers\GeneroController.cs" />
@@ -175,15 +170,9 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\AutorModel.cs" />
-    <Compile Include="Models\ClienteModel.cs" />
-    <Compile Include="Models\Contexto.cs" />
-    <Compile Include="Models\GeneroModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
-    <Compile Include="Models\PeliculaModel.cs" />
     <Compile Include="Models\RentaPeliculaModel.cs" />
-    <Compile Include="Models\RentaModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -246,6 +235,8 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Autor\Index.cshtml" />
+    <Content Include="Views\Autor\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -258,6 +249,20 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MovieStore.Bussiness\MovieStore.Bussiness.csproj">
+      <Project>{b7074744-c720-4cec-8d07-2ee959fe206c}</Project>
+      <Name>MovieStore.Bussiness</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MovieStore.Data\MovieStore.Data.csproj">
+      <Project>{a2691a09-9806-4d34-8fd7-ec83a6424e98}</Project>
+      <Name>MovieStore.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MovieStore.Models\MovieStore.Models.csproj">
+      <Project>{2a7ea159-df1c-4cec-ad86-4cdd6941e0a9}</Project>
+      <Name>MovieStore.Models</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

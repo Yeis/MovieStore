@@ -62,3 +62,9 @@ C:\Users\josecarlos\Documents\GitHub\MovieStore\MovieStore\bin\Microsoft.Owin.Se
 C:\Users\josecarlos\Documents\GitHub\MovieStore\MovieStore\obj\Debug\MovieStore.csprojResolveAssemblyReference.cache
 C:\Users\josecarlos\Documents\GitHub\MovieStore\MovieStore\obj\Debug\MovieStore.dll
 C:\Users\josecarlos\Documents\GitHub\MovieStore\MovieStore\obj\Debug\MovieStore.pdb
+C:\Users\josecarlos\Documents\GitHub\MovieStore\MovieStore\bin\MovieStore.Bussiness.dll
+C:\Users\josecarlos\Documents\GitHub\MovieStore\MovieStore\bin\MovieStore.Data.dll
+C:\Users\josecarlos\Documents\GitHub\MovieStore\MovieStore\bin\MovieStore.Models.dll
+C:\Users\josecarlos\Documents\GitHub\MovieStore\MovieStore\bin\MovieStore.Bussiness.pdb
+C:\Users\josecarlos\Documents\GitHub\MovieStore\MovieStore\bin\MovieStore.Data.pdb
+C:\Users\josecarlos\Documents\GitHub\MovieStore\MovieStore\bin\MovieStore.Models.pdb

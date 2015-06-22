@@ -3,14 +3,14 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-
+using MovieStore.Data;
 namespace MovieStore.BLL
 {
     public class PeliculaRentaBLL
     {
         #region Métodos
 
-        public static void Agregar(RentaPeliculaModel pr)
+     /*  public static void Agregar(RentaPeliculaModel pr)
         {
             using (var bd = new Contexto())
             {
@@ -44,6 +44,7 @@ namespace MovieStore.BLL
                 return bd.RentaPeliculas.ToList();
             }
         }
+      */
 
         #endregion
     }

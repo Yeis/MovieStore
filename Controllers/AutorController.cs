@@ -1,19 +1,21 @@
-﻿using MovieStore.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-
+using MovieStore.Bussiness;
+using MovieStore.Models;
+using MovieStore.Data;
 namespace MovieStore.Controllers
 {
     public class AutorController : Controller
     {
-        //
+        AutorBLL Autor= new AutorBLL();
+        Contexto context = new Contexto();
         // GET: /Autor/
         public ActionResult Index()
         {
-            return View(BLL.AutorBLL.GetAutores());
+            return View(Autor.GetAutores());
         }
 
         //
@@ -37,7 +39,7 @@ namespace MovieStore.Controllers
         {
             try
             {
-                BLL.AutorBLL.Agregar(autor);
+                AutorBLL.Agregar(autor);
 
                 return RedirectToAction("Index");
             }
@@ -57,12 +59,12 @@ namespace MovieStore.Controllers
         //
         // POST: /Autor/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(int id, AutorModel model)
         {
             try
             {
                 // TODO: Add update logic here
-
+                Autor.Editar(model);
                 return RedirectToAction("Index");
             }
             catch
