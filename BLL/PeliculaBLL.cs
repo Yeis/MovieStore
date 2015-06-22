@@ -14,7 +14,7 @@ namespace MovieStore.BLL
         {
             using (var bd = new Contexto())
             {
-                bd.Pelicula.Add(pm);
+                bd.Peliculas.Add(pm);
                 bd.SaveChanges();
             }
         }
@@ -23,7 +23,7 @@ namespace MovieStore.BLL
         {
             using (var bd = new Contexto())
             {
-                bd.Pelicula.Attach(pm);
+                bd.Peliculas.Attach(pm);
                 bd.SaveChanges();
             }
         }
@@ -32,8 +32,16 @@ namespace MovieStore.BLL
         {
             using (var bd = new Contexto())
             {
-                bd.Pelicula.Remove(pm);
+                bd.Peliculas.Remove(pm);
                 bd.SaveChanges();
+            }
+        }
+
+        public static List<PeliculaModel> GetPeliculas()
+        {
+            using (var bd = new Contexto())
+            {
+                return bd.Peliculas.ToList();
             }
         }
 

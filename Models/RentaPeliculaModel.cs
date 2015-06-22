@@ -5,11 +5,10 @@ using System.Web;
 
 namespace MovieStore.Models
 {
-    public class PeliculaRentaModel
+    public class RentaPeliculaModel
     {
         #region Propiedades
 
-        public int PeliculaRentaId { get; set; }
         public PeliculaModel Pelicula { get; set; }
         public int? PeliculaId { get; set; }
         public RentaModel Renta { get; set; }

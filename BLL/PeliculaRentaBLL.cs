@@ -10,30 +10,38 @@ namespace MovieStore.BLL
     {
         #region Métodos
 
-        public static void Agregar(PeliculaRentaModel pr)
+        public static void Agregar(RentaPeliculaModel pr)
         {
             using (var bd = new Contexto())
             {
-                bd.PeliculaRenta.Add(pr);
+                bd.RentaPeliculas.Add(pr);
                 bd.SaveChanges();
             }
         }
 
-        public static void Editar(PeliculaRentaModel pr)
+        public static void Editar(RentaPeliculaModel pr)
         {
             using (var bd = new Contexto())
             {
-                bd.PeliculaRenta.Attach(pr);
+                bd.RentaPeliculas.Attach(pr);
                 bd.SaveChanges();
             }
         }
 
-        public static void Eliminar(PeliculaRentaModel pr)
+        public static void Eliminar(RentaPeliculaModel pr)
         {
             using (var bd = new Contexto())
             {
-                bd.PeliculaRenta.Remove(pr);
+                bd.RentaPeliculas.Remove(pr);
                 bd.SaveChanges();
+            }
+        }
+
+        public static List<RentaPeliculaModel> GetRentaPeliculas()
+        {
+            using (var bd = new Contexto())
+            {
+                return bd.RentaPeliculas.ToList();
             }
         }
 

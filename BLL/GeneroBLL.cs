@@ -14,7 +14,7 @@ namespace MovieStore.BLL
         {
             using (var bd = new Contexto())
             {
-                bd.Genero.Add(genero);
+                bd.Generos.Add(genero);
                 bd.SaveChanges();
             }
         }
@@ -23,7 +23,7 @@ namespace MovieStore.BLL
         {
             using (var bd = new Contexto())
             {
-                bd.Genero.Attach(genero);
+                bd.Generos.Attach(genero);
                 bd.SaveChanges();
             }
         }
@@ -32,8 +32,16 @@ namespace MovieStore.BLL
         {
             using (var bd = new Contexto())
             {
-                bd.Genero.Remove(genero);
+                bd.Generos.Remove(genero);
                 bd.SaveChanges();
+            }
+        }
+
+        public static List<GeneroModel> GetGeneros()
+        {
+            using (var bd = new Contexto())
+            {
+                return bd.Generos.ToList();
             }
         }
 

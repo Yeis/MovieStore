@@ -14,7 +14,7 @@ namespace MovieStore.BLL
         {
             using (var bd = new Contexto())
             {
-                bd.Autor.Add(autor);
+                bd.Autores.Add(autor);
                 bd.SaveChanges();
             }
         }
@@ -23,7 +23,7 @@ namespace MovieStore.BLL
         {
             using (var bd = new Contexto())
             {
-                bd.Autor.Attach(autor);
+                bd.Autores.Attach(autor);
                 bd.SaveChanges();
             }
         }
@@ -32,8 +32,16 @@ namespace MovieStore.BLL
         {
             using (var bd = new Contexto())
             {
-                bd.Autor.Remove(autor);
+                bd.Autores.Remove(autor);
                 bd.SaveChanges();
+            }
+        }
+
+        public static List<AutorModel> GetAutores()
+        {
+            using (var bd = new Contexto())
+            {
+                return bd.Autores.ToList();
             }
         }
 

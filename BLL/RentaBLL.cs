@@ -14,7 +14,7 @@ namespace MovieStore.BLL
         {
             using (var bd = new Contexto())
             {
-                bd.Renta.Add(renta);
+                bd.Rentas.Add(renta);
                 bd.SaveChanges();
             }
         }
@@ -23,7 +23,7 @@ namespace MovieStore.BLL
         {
             using (var bd = new Contexto())
             {
-                bd.Renta.Attach(renta);
+                bd.Rentas.Attach(renta);
                 bd.SaveChanges();
             }
         }
@@ -32,8 +32,16 @@ namespace MovieStore.BLL
         {
             using (var bd = new Contexto())
             {
-                bd.Renta.Remove(renta);
+                bd.Rentas.Remove(renta);
                 bd.SaveChanges();
+            }
+        }
+
+        public static List<RentaModel> GetRentas()
+        {
+            using (var bd = new Contexto())
+            {
+                return bd.Rentas.ToList();
             }
         }
 

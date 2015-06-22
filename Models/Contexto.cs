@@ -8,11 +8,11 @@ namespace MovieStore.Models
 {
     public class Contexto : DbContext
     {
-        public DbSet<AutorModel> Autor { get; set; }
-        public DbSet<GeneroModel> Genero { get; set; }
-        public DbSet<ClienteModel> Cliente { get; set; }
-        public DbSet<PeliculaModel> Pelicula { get; set; }
-        public DbSet<RentaModel> Renta { get; set; }
-        public DbSet<PeliculaRentaModel> PeliculaRenta { get; set; }
+        public DbSet<AutorModel> Autores { get; set; }
+        public DbSet<GeneroModel> Generos { get; set; }
+        public DbSet<ClienteModel> Clientes { get; set; }
+        public DbSet<PeliculaModel> Peliculas { get; set; }
+        public DbSet<RentaModel> Rentas { get; set; }
+        public DbSet<RentaPeliculaModel> RentaPeliculas { get; set; }
     }
 }
