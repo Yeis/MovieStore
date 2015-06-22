@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MovieStore.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -16,6 +17,9 @@ namespace MovieStore
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+
+            Contexto Context = new Contexto();
+            Context.Database.Initialize(true);
         }
     }
 }

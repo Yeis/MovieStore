@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MovieStore.BLL;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -9,9 +10,10 @@ namespace MovieStore.Controllers
     public class GeneroController : Controller
     {
         // GET: Genero
+
         public ActionResult Index()
         {
-            return View();
+            return View(BLL.GeneroBLL.GetGeneros());
         }
     }
 }

@@ -13,7 +13,7 @@ namespace MovieStore.Controllers
         // GET: /Autor/
         public ActionResult Index()
         {
-            return View();
+            return View(BLL.AutorBLL.GetAutores());
         }
 
         //
