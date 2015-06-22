@@ -1,0 +1,9 @@
+C:\Users\Antonio\Documents\GitHub\MovieStore\bin\MovieStore.dll.config
+C:\Users\Antonio\Documents\GitHub\MovieStore\bin\MovieStore.dll
+C:\Users\Antonio\Documents\GitHub\MovieStore\bin\MovieStore.pdb
+C:\Users\Antonio\Documents\GitHub\MovieStore\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Antonio\Documents\GitHub\MovieStore\bin\Newtonsoft.Json.dll
+C:\Users\Antonio\Documents\GitHub\MovieStore\bin\Newtonsoft.Json.xml
+C:\Users\Antonio\Documents\GitHub\MovieStore\bin\Microsoft.Web.Infrastructure.xml
+C:\Users\Antonio\Documents\GitHub\MovieStore\obj\Debug\MovieStore.dll
+C:\Users\Antonio\Documents\GitHub\MovieStore\obj\Debug\MovieStore.pdb
