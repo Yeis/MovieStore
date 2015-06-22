@@ -14,5 +14,10 @@ namespace MovieStore.Models
         public DbSet<PeliculaModel> Peliculas { get; set; }
         public DbSet<RentaModel> Rentas { get; set; }
         public DbSet<RentaPeliculaModel> RentaPeliculas { get; set; }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+        }
     }
 }
