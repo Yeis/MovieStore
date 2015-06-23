@@ -18,6 +18,8 @@ namespace MovieStore.Data
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<RentaModel>().HasRequired(r => r.Pelicula);
+
             base.OnModelCreating(modelBuilder);
         }
     }
