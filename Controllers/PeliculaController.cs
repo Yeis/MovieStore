@@ -4,22 +4,47 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using MovieStore.Bussiness;
 
-namespace MovieStore.Controllers
+namespace MovieStorev1.Controllers
 {
     public class PeliculaController : Controller
     {
-
-        PeliculaBLL Pelicula_BLL = new PeliculaBLL();
-
         // GET: Pelicula
-        public ActionResult Index()
+        public ActionResult Index(int? Selected)
         {
+            var db = new MovieStore.Data.Contexto();
+            var autores = db.Autores.OrderBy(q => q.Nombre).ToList();
+            ViewBag.SelectedDepartment = new SelectList(autores, "Id", "Nombre", Selected);
+            int autorID = Selected.GetValueOrDefault();
 
-            return View(PeliculaBLL.GetPeliculas());
+            IQueryable<PeliculaModel> peliculas = db.Peliculas
+                .Where(c => !Selected.HasValue || c.AutorId == autorID)
+                .OrderBy(d => d.Id);
+
+            var sql = peliculas.ToString();
+
+            return View(peliculas);
         }
 
+        //
+        // GET: /Peliculas/Peliculas_Genero
+        public ActionResult Peliculas_Genero(GeneroModel genero) 
+        {
+
+            //Logica
+            return View();
+        }
+        //
+        // GET: /Peliculas/Peliculas_Autor
+        public ActionResult Peliculas_Genero(AutorModel genero)
+        {
+
+            //Logica
+            return View();
+        }
+
+
+        //
         // GET: /Pelicula/Details/5
         public ActionResult Details(int id)
         {
@@ -30,6 +55,8 @@ namespace MovieStore.Controllers
         // GET: /Pelicula/Create
         public ActionResult Create()
         {
+            AutorDropDownList();
+            GeneroDropDownList();
             return View();
         }
 
@@ -54,7 +81,10 @@ namespace MovieStore.Controllers
         // GET: /Pelicula/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            PeliculaModel p = PeliculaBLL.GetPeliculas(id);
+            AutorDropDownList(p.AutorId);
+            GeneroDropDownList(p.GeneroId);
+            return View(p);
         }
 
         //
@@ -64,8 +94,8 @@ namespace MovieStore.Controllers
         {
             try
             {
-                // TODO: Add update logic here
-                //Genero_BLL.Editar(Genero);
+                PeliculaBLL.Editar(id, pelicula);
+
                 return RedirectToAction("Index");
             }
             catch
@@ -78,7 +108,8 @@ namespace MovieStore.Controllers
         // GET: /Pelicula/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            PeliculaModel pelicula = PeliculaBLL.GetPeliculas(id);
+            return View(pelicula);
         }
 
         //
@@ -88,7 +119,7 @@ namespace MovieStore.Controllers
         {
             try
             {
-                // TODO: Add Pelicula logic here
+                PeliculaBLL.Eliminar(id, pelicula);
 
                 return RedirectToAction("Index");
             }
@@ -96,6 +127,27 @@ namespace MovieStore.Controllers
             {
                 return View();
             }
+        }
+
+        private void AutorDropDownList(object selected = null)
+        {
+            var db = new MovieStore.Data.Contexto();
+
+            var query = from d in db.Autores
+                        orderby d.Nombre
+                        select d;
+            
+            ViewData["AutorId"] = new SelectList(query, "Id", "Nombre", selected);
+        }
+
+        private void GeneroDropDownList(object selected = null)
+        {
+            var db = new MovieStore.Data.Contexto();
+
+            var query = from d in db.Generos
+                        orderby d.Nombre
+                        select d;
+            ViewBag.GeneroId = new SelectList(query, "Id", "Nombre", selected);
         }
     }
 }

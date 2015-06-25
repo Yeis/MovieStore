@@ -1,21 +1,20 @@
-﻿using System;
+﻿using MovieStore.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using MovieStore.Bussiness;
-using MovieStore.Models;
-using MovieStore.Data;
-namespace MovieStore.Controllers
+
+namespace MovieStorev1.Controllers
 {
     public class AutorController : Controller
     {
-        AutorBLL Autor= new AutorBLL();
-        Contexto context = new Contexto();
+        //
         // GET: /Autor/
         public ActionResult Index()
         {
-            return View(Autor.GetAutores());
+            List<AutorModel> lista = AutorBLL.GetAutores();
+            return View(lista);
         }
 
         //
@@ -53,18 +52,19 @@ namespace MovieStore.Controllers
         // GET: /Autor/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            AutorModel autor = AutorBLL.GetAutor(id);
+            return View(autor);
         }
 
         //
         // POST: /Autor/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, AutorModel model)
+        public ActionResult Edit(int id, AutorModel autor)
         {
             try
             {
-                // TODO: Add update logic here
-                Autor.Editar(model);
+                AutorBLL.Editar(id, autor);
+
                 return RedirectToAction("Index");
             }
             catch
@@ -77,17 +77,18 @@ namespace MovieStore.Controllers
         // GET: /Autor/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            AutorModel autor = AutorBLL.GetAutor(id);
+            return View(autor);
         }
 
         //
         // POST: /Autor/Delete/5
         [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        public ActionResult Delete(int id, AutorModel autor)
         {
             try
             {
-                // TODO: Add delete logic here
+                AutorBLL.Eliminar(id, autor);
 
                 return RedirectToAction("Index");
             }

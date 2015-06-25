@@ -7,37 +7,35 @@ using System.Web.Mvc;
 
 namespace MovieStorev1.Controllers
 {
-    public class GeneroController : Controller
+    public class ClienteController : Controller
     {
-        // GET: /Genero/
+        // GET: Cliente
         public ActionResult Index()
         {
-            List<GeneroModel> lista = GeneroBLL.GetGeneros();
-            return View(lista);
+            return View(ClienteBLL.GetClientes());
         }
-
         //
-        // GET: /Genero/Details/5
+        // GET: /Cliente/Details/5
         public ActionResult Details(int id)
         {
             return View();
         }
 
         //
-        // GET: /Genero/Create
+        // GET: /Cliente/Create
         public ActionResult Create()
         {
             return View();
         }
 
         //
-        // POST: /Genero/Create
+        // POST: /Cliente/Create
         [HttpPost]
-        public ActionResult Create(GeneroModel genero)
+        public ActionResult Create(ClienteModel cliente)
         {
             try
             {
-                GeneroBLL.Agregar(genero);
+                ClienteBLL.Agregar(cliente);
 
                 return RedirectToAction("Index");
             }
@@ -48,21 +46,21 @@ namespace MovieStorev1.Controllers
         }
 
         //
-        // GET: /Genero/Edit/5
+        // GET: /Cliente/Edit/5
         public ActionResult Edit(int id)
         {
-            GeneroModel genero = GeneroBLL.GetGenero(id); 
+            ClienteModel genero = ClienteBLL.GetCliente(id);
             return View(genero);
         }
 
         //
-        // POST: /Genero/Edit/5
+        // POST: /Cliente/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, GeneroModel genero)
+        public ActionResult Edit(int id, ClienteModel cleinte)
         {
             try
             {
-                GeneroBLL.Editar(id, genero);
+                ClienteBLL.Editar(id, cleinte);
 
                 return RedirectToAction("Index");
             }
@@ -73,21 +71,21 @@ namespace MovieStorev1.Controllers
         }
 
         //
-        // GET: /Genero/Delete/5
+        // GET: /Cliente/Delete/5
         public ActionResult Delete(int id)
         {
-            GeneroModel genero = GeneroBLL.GetGenero(id); 
+            ClienteModel genero = ClienteBLL.GetCliente(id);
             return View(genero);
         }
 
         //
-        // POST: /Genero/Delete/5
+        // POST: /Cliente/Delete/5
         [HttpPost]
-        public ActionResult Delete(int id, GeneroModel genero)
+        public ActionResult Delete(int id, ClienteModel cliente)
         {
             try
             {
-                GeneroBLL.Eliminar(id, genero);
+                ClienteBLL.Eliminar(id, cliente);
 
                 return RedirectToAction("Index");
             }
@@ -96,6 +94,5 @@ namespace MovieStorev1.Controllers
                 return View();
             }
         }
-
     }
 }
